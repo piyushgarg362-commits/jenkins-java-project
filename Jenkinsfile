@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('code') {
             steps {
-                git url: 'https://github.com/devopsbyraham/jenkins-java-project.git'
+                git url: 'https://github.com/piyushgarg362-commits/jenkins-java-project.git'
             }
         }
         stage('build') {

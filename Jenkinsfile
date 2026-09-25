@@ -26,21 +26,20 @@ pipeline {
                 sh 'mvn package'
             }
         }
-        stage('s3') {
-    steps {
-        withAWS(region: 'ap-south-1', credentials: 'my-aws-s3-key') {
-            s3Upload(
-                file: 'target/NETFLIX-1.2.2.war', 
-                bucket: 'artifactbucketfornetflixapp'
-            )
-        }
-    }
-}
-        }
-        stage('deploy') {
+               stage('s3') {
             steps {
-                echo "my code is deployed"
+                withAWS(region: 'ap-south-1', credentials: 'my-aws-s3-key') {
+                    s3Upload(
+                        file: 'target/NETFLIX-1.2.2.war', 
+                        bucket: 'artifactbucketfornetflixapp'
+                    )
+                }
             }
         }
-    }
-}
+
+        stage('deploy') {
+            steps {
+                // Your deployment shell scripts or commands go here
+                echo 'Deploying application...'
+            }
+        }

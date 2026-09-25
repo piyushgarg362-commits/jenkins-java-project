@@ -41,5 +41,7 @@ pipeline {
             steps {
                 // Your deployment shell scripts or commands go here
                 echo 'Deploying application...'
-            }
+           }
         }
+    } 
+} 
